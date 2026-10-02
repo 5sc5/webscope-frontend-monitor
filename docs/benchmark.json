@@ -1,0 +1,33 @@
+{
+  "measuredAt": "2026-10-02T04:52:13.829Z",
+  "environment": {
+    "node": "v26.0.0",
+    "platform": "win32",
+    "cpu": "Intel(R) Core(TM) Ultra 7 251HX"
+  },
+  "scope": "Node + JSDOM synthetic benchmark, in-memory acknowledged transport. Not browser Web Vitals or real network latency.",
+  "sdkBundle": [
+    {
+      "name": "index.js",
+      "bytes": 22950,
+      "gzipBytes": 7065
+    }
+  ],
+  "batching": {
+    "individual": {
+      "events": 1000,
+      "transportRequests": 1000,
+      "captureTotalMs": 96.88,
+      "captureMeanMs": 0.0969,
+      "dropped": 0
+    },
+    "batched": {
+      "events": 1000,
+      "transportRequests": 100,
+      "captureTotalMs": 81.11,
+      "captureMeanMs": 0.0811,
+      "dropped": 0
+    },
+    "requestReductionPercent": 90
+  }
+}

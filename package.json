@@ -1,0 +1,17 @@
+{
+  "name": "webscope",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:stop": "node scripts/stop.mjs",
+    "db:setup": "npm run db:setup --workspace @webscope/server",
+    "build": "npm run build --workspace @webscope/monitor-sdk && npm run build --workspace @webscope/server && npm run build --workspace @webscope/dashboard && npm run build --workspace @webscope/playground",
+    "test": "npm run test --workspace @webscope/monitor-sdk && npm run test --workspace @webscope/server",
+    "benchmark": "node scripts/benchmark.mjs"
+  },
+  "devDependencies": { "typescript": "^5.9.2" }
+}

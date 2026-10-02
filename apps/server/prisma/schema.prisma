@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Application {
+  appId     String         @id
+  name      String
+  createdAt DateTime       @default(now())
+  events    MonitorEvent[]
+}
+
+model MonitorEvent {
+  id          String      @id
+  appId       String
+  sessionId   String
+  type        String
+  message     String
+  url         String
+  timestamp   DateTime
+  detail      Json
+  breadcrumbs Json
+  issueId     String?
+  createdAt   DateTime    @default(now())
+  application Application @relation(fields: [appId], references: [appId])
+
+  @@index([appId, timestamp])
+  @@index([appId, type, timestamp])
+  @@index([appId, issueId])
+}
